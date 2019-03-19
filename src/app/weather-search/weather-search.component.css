@@ -1,7 +1,14 @@
 .search-location {
     display: inline;
 }
-
+#search-input {
+  width: 300px;
+  padding: 5px;
+}
+.search-location-title {
+  color: grey;
+  margin-top: 50px;
+}
 .search-list li {
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
@@ -15,7 +22,7 @@
   }
   
   .search-list li:hover {
-    background-color: #607D8B;
+    background-color: #1976d2;
   }
   
   .search-list li a {
@@ -34,8 +41,6 @@
     width: 200px;
     height: 20px;
   }
-  
-  
   ul.search-list {
     margin-top: 0;
     padding-left: 0;

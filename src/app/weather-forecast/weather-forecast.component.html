@@ -6,10 +6,14 @@
     <div *ngFor="let forecast of locationForecast.consolidated_weather" class="forecast-card">
       <p class="forecast-day">{{forecast.applicable_date}}</p>
       <p class="forecast-day">{{forecast.weather_state_name}}</p>
-      <img src="https://www.metaweather.com/static/img/weather/{{forecast.weather_state_abbr}}.svg" alt="icon"
-        class="forecast-icon" />
-      <p class="forecast-min-temp">Min: {{forecast.min_temp}}</p>
-      <p class="forecast-max-temp">Max: {{forecast.max_temp}}</p>
+      <div>
+        <img src="https://www.metaweather.com/static/img/weather/{{forecast.weather_state_abbr}}.svg" alt="icon"
+          class="forecast-icon" />
+      </div>
+      <div class="forecast-temp">
+        <p class="forecast-min-temp">Min: {{forecast.min_temp}}</p>
+        <p class="forecast-max-temp">Max: {{forecast.max_temp}}</p>
+      </div>
     </div>
   </div>
 </ng-container>

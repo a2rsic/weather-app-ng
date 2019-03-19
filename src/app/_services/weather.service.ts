@@ -24,6 +24,9 @@ export class WeatherService {
     return this.http.get<WeatherLocation[]>(`/api/location/search/?query=${term}`)
       .pipe(
         tap(_ => console.log(`found locations matching "${term}"`)),
+        // map(weatherLocation => WeatherLocation[0]),
+        // catchError(err => of([1]))
+
       )
   }
 

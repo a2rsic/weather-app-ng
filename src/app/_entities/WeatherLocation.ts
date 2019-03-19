@@ -1,4 +1,7 @@
+import { Weather } from './Weather';
+
 export class WeatherLocation {
-    id: number;
-    title: string
+    woeid: number;
+    title: string;
+    consolidated_weather: Weather[]
 }
