@@ -1,26 +1,18 @@
-<h2 class="forecast-city">City name Forecast</h2>
-<div class="container">
-  <div class="forecast-card">
-    <p class="forecast-day">Monday</p>
-    <img src="https://blog.macsales.com/wp-content/uploads/2019/02/ios12-weather-app-icon-thumbnail_2x.png?w=640"
-      alt="icon" class="forecast-icon">
-    <p class="forecast-min-temp">min:</p>
-    <p class="forecast-max-temp">max:</p>
-  </div>
+<ng-container *ngIf="locationForecast; else loadingTemplate">
+  <button (click)="goBack()">Go back</button>
 
-  <div class="forecast-card">
-    <p class="forecast-day">Tuesday</p>
-    <img src="https://blog.macsales.com/wp-content/uploads/2019/02/ios12-weather-app-icon-thumbnail_2x.png?w=640"
-      alt="icon" class="forecast-icon">
-    <p class="forecast-min-temp">min:</p>
-    <p class="forecast-max-temp">max:</p>
+  <h2 class="forecast-city">{{locationForecast.title}} Forecast</h2>
+  <div class="container">
+    <div *ngFor="let forecast of locationForecast.consolidated_weather" class="forecast-card">
+      <p class="forecast-day">{{forecast.applicable_date}}</p>
+      <p class="forecast-day">{{forecast.weather_state_name}}</p>
+      <img src="https://www.metaweather.com/static/img/weather/{{forecast.weather_state_abbr}}.svg" alt="icon"
+        class="forecast-icon" />
+      <p class="forecast-min-temp">Min: {{forecast.min_temp}}</p>
+      <p class="forecast-max-temp">Max: {{forecast.max_temp}}</p>
+    </div>
   </div>
-
-  <div class="forecast-card">
-    <p class="forecast-day">Wednesday</p>
-    <img src="https://blog.macsales.com/wp-content/uploads/2019/02/ios12-weather-app-icon-thumbnail_2x.png?w=640"
-      alt="icon" class="forecast-icon">
-    <p class="forecast-min-temp">min:</p>
-    <p class="forecast-max-temp">max:</p>
-  </div>
-</div>
+</ng-container>
+<ng-template #loadingTemplate class="loading">
+  <h2>Loading...</h2>
+</ng-template>

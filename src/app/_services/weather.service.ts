@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { WeatherLocation } from '../_entities/WeatherLocation';
+import { WeatherForecast } from '../_entities/WeatherForecast';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class WeatherService {
       .pipe(
         tap(_ => console.log(`found locations matching "${term}"`)),
       )
+  }
+
+  getWeatherForecast(id: number): Observable<WeatherForecast> {
+    return this.http.get<WeatherForecast>(`/api/location/${id}/`)
   }
 }

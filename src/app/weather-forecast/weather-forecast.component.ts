@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+
+import { WeatherService } from '../_services/weather.service';
+import { WeatherForecast } from '../_entities/WeatherForecast';
+
 
 @Component({
   selector: 'app-weather-forecast',
@@ -6,10 +13,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather-forecast.component.css']
 })
 export class WeatherForecastComponent implements OnInit {
+  @Input() locationForecast: WeatherForecast;
 
-  constructor() { }
+  constructor(
+    private weatherService: WeatherService,
+    private route: ActivatedRoute,
+    private location: Location
+
+  ) { }
+
+  getForecast() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.weatherService.getWeatherForecast(id)
+      .subscribe((locationForecast) => {
+        this.locationForecast = locationForecast
+
+      })
+
+  }
+
+  goBack(): void {
+    this.location.back()
+  }
 
   ngOnInit() {
+    this.getForecast()
   }
 
 }
