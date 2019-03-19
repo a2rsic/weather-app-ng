@@ -3,7 +3,7 @@
 
   <ul class="search-list">
     <li *ngFor="let weatherLocation of weatherLocations$ | async">
-      <a routerLink="/forecast">{{weatherLocation.title}}</a>
+      <a routerLink="/forecast/{{weatherLocation.woeid}}">{{weatherLocation.title}}</a>
     </li>
   </ul>
 </div>

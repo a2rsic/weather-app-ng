@@ -8,7 +8,7 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
 const appRoutes: Routes = [
   { path: "", redirectTo: "/search", pathMatch: "full" },
   { path: "search", component: WeatherSearchComponent },
-  { path: "forecast", component: WeatherForecastComponent },
+  { path: "forecast/:id", component: WeatherForecastComponent },
 ]
 
 @NgModule({

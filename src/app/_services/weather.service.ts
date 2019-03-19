@@ -10,8 +10,6 @@ import { WeatherLocation } from '../_entities/WeatherLocation';
 })
 export class WeatherService {
 
-  private weatherUrl = "https://www.metaweather.com/api/"
-
   constructor(
     private http: HttpClient
   ) { }
@@ -22,7 +20,7 @@ export class WeatherService {
       return of([])
     }
 
-    return this.http.get<WeatherLocation[]>(`${this.weatherUrl}/location/search/?query=${term}`)
+    return this.http.get<WeatherLocation[]>(`/api/location/search/?query=${term}`)
       .pipe(
         tap(_ => console.log(`found locations matching "${term}"`)),
       )
