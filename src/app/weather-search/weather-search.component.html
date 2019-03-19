@@ -1,8 +1,9 @@
 <div class="search-location">
-  <input type="text" class="search-input" placeholder="Search city">
+  <input #searchInput id="search-input" (input)="search(searchInput.value)" placeholder="Search city" />
 
   <ul class="search-list">
-    <li><a routerLink="/forecast">BG</a></li>
-    <li><a routerLink="/forecast">KS</a></li>
+    <li *ngFor="let weatherLocation of weatherLocations$ | async">
+      <a routerLink="/forecast">{{weatherLocation.title}}</a>
+    </li>
   </ul>
 </div>
