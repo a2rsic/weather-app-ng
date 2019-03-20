@@ -9,7 +9,7 @@ export class WeatherForecast {
 
     get weathers(): Weather[] {
         return this.forecasts.map((forecast) => {
-            const { id, weather_state_name, weather_state_abbr, applicable_date, min_temp, max_temp, the_temp } = forecast;
+            const { id, weather_state_name, weather_state_abbr, applicable_date, min_temp, max_temp, the_temp, humidity } = forecast;
             return new Weather(
                 id,
                 weather_state_name,
@@ -17,7 +17,8 @@ export class WeatherForecast {
                 applicable_date,
                 min_temp,
                 max_temp,
-                the_temp
+                the_temp,
+                humidity
             )
         })
     }

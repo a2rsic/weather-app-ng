@@ -4,7 +4,7 @@
   </div>
   <div class="search-container">
     <h3 class="search-location-title">Search location forecast</h3>
-    <input #searchInput id="search-input" (input)="search(searchInput.value)" autocomplete="off"
+    <input #searchInput type="text" id="search-input" (input)="search(searchInput.value)" autocomplete="off"
       placeholder="Search city" />
     <ul class="search-list">
       <li *ngFor="let weatherLocation of weatherLocations$ | async | slice: 0:5">

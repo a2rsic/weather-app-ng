@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { WeatherLocation } from '../_entities/WeatherLocation';
 import { WeatherForecast } from '../_entities/WeatherForecast';

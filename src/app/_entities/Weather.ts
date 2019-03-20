@@ -6,7 +6,8 @@ export class Weather {
         public date: string,
         public minTemp: number,
         public maxTemp: number,
-        public currentTemp: number
+        public currentTemp: number,
+        public humidity: number
     ) { }
 
     get iconUrl(): string {
