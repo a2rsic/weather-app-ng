@@ -15,7 +15,6 @@ export class WeatherService {
     private http: HttpClient
   ) { }
 
-  /* GET city whose name contains search term */
   searchWeatherLocations(term: string): Observable<WeatherLocation[]> {
     if (!term.trim()) {
       return of([])

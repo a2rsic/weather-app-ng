@@ -25,10 +25,8 @@ export class WeatherSearchComponent implements OnInit {
     this.weatherLocations$ = this.searchTerms.pipe(
       debounceTime(100),
 
-      // ignore new term if same as previous term
       distinctUntilChanged(),
 
-      // switch to new search observable each time the term changes
       switchMap((term: string) => {
 
         return this.weatherService.searchWeatherLocations(term)

@@ -29,7 +29,6 @@ export class WeatherForecastComponent implements OnInit {
         this.weatherForecast = locationForecast
 
       })
-
   }
 
   goBack(): void {
