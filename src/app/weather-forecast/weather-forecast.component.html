@@ -1,19 +1,21 @@
 <ng-container *ngIf="weatherForecast; else loadingTemplate">
-  <button (click)="goBack()">Go back</button>
+  <button class="back-button" (click)="goBack()"><img class="back-image"
+      src="../../assets/images/goBack.png" /></button>
 
-  <h2 class="forecast-city">{{weatherForecast.name | uppercase}} Forecast</h2>
+  <h2 class="forecast-city"><span>{{weatherForecast.name | uppercase}}</span> Forecast</h2>
   <div class="container">
     <div *ngFor="let weather of weatherForecast.weathers | slice: 0:3" class="forecast-card">
       <p class="forecast-day">{{weather.date | date}}</p>
       <p class="forecast-day">{{weather.stateName}}</p>
-      <p class="forecast-the-temp">Current temp: {{weather.currentTemp | number: '1.0-0' }}°C</p>
+      <p class="forecast-current-temp">Current temp: {{weather.currentTemp | number: '1.0-0' }}°C</p>
 
       <div>
         <img src="{{weather.iconUrl}}" alt="icon" class="forecast-icon" />
       </div>
       <div class="forecast-temp">
         <p class="forecast-min-temp">Min: {{weather.minTemp | number: '1.0-0' }}°C</p>
-        <p class="forecast-max-temp">Max: {{weather.maxTemp | number: '1.0-0'}}°C</p>
+        <hr>
+        <p class="forecast-max-temp">Max: <b>{{weather.maxTemp | number: '1.0-0'}}°C</b></p>
       </div>
     </div>
   </div>

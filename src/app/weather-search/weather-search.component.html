@@ -1,10 +1,15 @@
-<div class="search-location">
-  <h3 class="search-location-title">Search location forecast:</h3>
-  <input #searchInput id="search-input" (input)="search(searchInput.value)" autocomplete="off"
-    placeholder="Search city" />
-  <ul class="search-list">
-    <li *ngFor="let weatherLocation of weatherLocations$ | async">
-      <a routerLink="/forecast/{{weatherLocation.id}}">{{weatherLocation.name}}</a>
-    </li>
-  </ul>
+<div class="search-location box">
+  <div class="image-container">
+    <img class="search-image" src="../../assets/images/weather-icon.png" alt="weather">
+  </div>
+  <div class="search-container">
+    <h3 class="search-location-title">Search location forecast</h3>
+    <input #searchInput id="search-input" (input)="search(searchInput.value)" autocomplete="off"
+      placeholder="Search city" />
+    <ul class="search-list">
+      <li *ngFor="let weatherLocation of weatherLocations$ | async | slice: 0:5">
+        <a routerLink="/forecast/{{weatherLocation.id}}">{{weatherLocation.name}}</a>
+      </li>
+    </ul>
+  </div>
 </div>

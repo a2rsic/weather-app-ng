@@ -1,16 +1,40 @@
+.back-button {
+    margin-top: 20px;
+    background-color: white;
+    padding: 0;
+    border: 0;
+
+}
 .forecast-city {
     text-align: center;
     color: grey;
+}
+span {
+    color: #1976d2;
+}
+
+.back-image {
+    width: 40px;
+    /* height: 20px; */
 }
 .container {
     display: flex;
 }
 .forecast-card {
-    border: 1px solid grey;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 15px;
-    padding: 20px;
+    padding: 20px 50px;
 }
 .forecast-day {
     text-align: center;
+}
+
+.forecast-current-temp {
+    color: #1976d2;
+}
+
+@media only screen and (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
 }
