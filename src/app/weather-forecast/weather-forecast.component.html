@@ -1,18 +1,19 @@
-<ng-container *ngIf="locationForecast; else loadingTemplate">
+<ng-container *ngIf="weatherForecast; else loadingTemplate">
   <button (click)="goBack()">Go back</button>
 
-  <h2 class="forecast-city">{{locationForecast.title}} Forecast</h2>
+  <h2 class="forecast-city">{{weatherForecast.name | uppercase}} Forecast</h2>
   <div class="container">
-    <div *ngFor="let forecast of locationForecast.consolidated_weather" class="forecast-card">
-      <p class="forecast-day">{{forecast.applicable_date}}</p>
-      <p class="forecast-day">{{forecast.weather_state_name}}</p>
+    <div *ngFor="let weather of weatherForecast.weathers | slice: 0:3" class="forecast-card">
+      <p class="forecast-day">{{weather.date | date}}</p>
+      <p class="forecast-day">{{weather.stateName}}</p>
+      <p class="forecast-the-temp">Current temp: {{weather.currentTemp | number: '1.0-0' }}°C</p>
+
       <div>
-        <img src="https://www.metaweather.com/static/img/weather/{{forecast.weather_state_abbr}}.svg" alt="icon"
-          class="forecast-icon" />
+        <img src="{{weather.iconUrl}}" alt="icon" class="forecast-icon" />
       </div>
       <div class="forecast-temp">
-        <p class="forecast-min-temp">Min: {{forecast.min_temp}}</p>
-        <p class="forecast-max-temp">Max: {{forecast.max_temp}}</p>
+        <p class="forecast-min-temp">Min: {{weather.minTemp | number: '1.0-0' }}°C</p>
+        <p class="forecast-max-temp">Max: {{weather.maxTemp | number: '1.0-0'}}°C</p>
       </div>
     </div>
   </div>

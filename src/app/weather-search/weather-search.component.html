@@ -1,9 +1,10 @@
 <div class="search-location">
   <h3 class="search-location-title">Search location forecast:</h3>
-  <input #searchInput id="search-input" (input)="search(searchInput.value)" placeholder="Search city" />
+  <input #searchInput id="search-input" (input)="search(searchInput.value)" autocomplete="off"
+    placeholder="Search city" />
   <ul class="search-list">
     <li *ngFor="let weatherLocation of weatherLocations$ | async">
-      <a routerLink="/forecast/{{weatherLocation.woeid}}">{{weatherLocation.title}}</a>
+      <a routerLink="/forecast/{{weatherLocation.id}}">{{weatherLocation.name}}</a>
     </li>
   </ul>
 </div>

@@ -13,24 +13,21 @@
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
-    width: 149px;
+    width: 301px;
     height: 16px;
     padding: 5px;
     background-color: white;
     cursor: pointer;
     list-style-type: none;
   }
-  
   .search-list li:hover {
     background-color: #1976d2;
   }
-  
   .search-list li a {
     color: #888;
     display: block;
     text-decoration: none;
   }
-  
   .search-list li a:hover {
     color: white;
   }

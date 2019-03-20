@@ -23,7 +23,7 @@ export class WeatherSearchComponent implements OnInit {
 
   ngOnInit() {
     this.weatherLocations$ = this.searchTerms.pipe(
-      debounceTime(300),
+      debounceTime(100),
 
       // ignore new term if same as previous term
       distinctUntilChanged(),

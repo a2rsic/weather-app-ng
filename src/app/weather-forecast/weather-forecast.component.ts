@@ -13,7 +13,7 @@ import { WeatherForecast } from '../_entities/WeatherForecast';
   styleUrls: ['./weather-forecast.component.css']
 })
 export class WeatherForecastComponent implements OnInit {
-  @Input() locationForecast: WeatherForecast;
+  @Input() weatherForecast: WeatherForecast;
 
   constructor(
     private weatherService: WeatherService,
@@ -26,7 +26,7 @@ export class WeatherForecastComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.weatherService.getWeatherForecast(id)
       .subscribe((locationForecast) => {
-        this.locationForecast = locationForecast
+        this.weatherForecast = locationForecast
 
       })
 

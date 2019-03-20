@@ -20,17 +20,26 @@ export class WeatherService {
     if (!term.trim()) {
       return of([])
     }
+    const searchRequestUrl = `/api/location/search/?query=${term}`
 
-    return this.http.get<WeatherLocation[]>(`/api/location/search/?query=${term}`)
+    return this.http.get<WeatherLocation[]>(searchRequestUrl)
       .pipe(
-        tap(_ => console.log(`found locations matching "${term}"`)),
-        // map(weatherLocation => WeatherLocation[0]),
-        // catchError(err => of([1]))
-
+        tap(() => console.log(`found locations matching "${term}"`)),
+        map(data => data.map((weatherLocation) => {
+          const { woeid, title } = weatherLocation as any;
+          return new WeatherLocation(woeid, title)
+        })),
       )
   }
 
   getWeatherForecast(id: number): Observable<WeatherForecast> {
-    return this.http.get<WeatherForecast>(`/api/location/${id}/`)
+    const weatherRequestUrl = `/api/location/${id}/`
+    return this.http.get<WeatherForecast>(weatherRequestUrl)
+      .pipe(
+        map(weatherForecast => {
+          const { woeid, title, consolidated_weather } = weatherForecast as any;
+          return new WeatherForecast(woeid, title, consolidated_weather)
+        })
+      )
   }
 }
